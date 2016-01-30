@@ -1,0 +1,257 @@
+<!-- javascript语言精粹 -->
+<!-- 闭包的准确定义：
+函数在定义的时候会记录下自己可见区域内的变量。由近到远形成一个链条，称为作用域链。
+
+函数在调用的时候，整个链条上的变量都是可见状态的。
+
+链条进出的变量会覆盖远处的变量。 
+
+常见用法：消除全局变量
+常见用法：传递临时状态-->
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Apple</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/index.js"></script>
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	<input type="checkbox" name="name" id="menustate">
+
+	<nav class="daohangnav">
+		<ul class="navul">
+			<li class="logo"><a href="#"><span>logo</span></a></li>
+			<li class="mac"><a href="#"></a></li>
+			<li class="ipad"><a href="#"></a></li>
+			<li class="iphone"><a href="#"></a></li>
+			<li class="watch"><a href="#"></a></li>
+			<li class="tv"><a href="#"></a></li>
+			<li class="music"><a href="#"></a></li>
+			<li class="support"><a href="#"></a></li>
+			<li class="sousuo"><a href="#"></a></li>
+			<li class="gouwudai"><a href="#"></a></li>
+		</ul>
+		<ul class="navul1">
+			<li class="xl">
+				<label for="menustate" id="menuicon-label">
+					<span></span>
+					<span></span>
+				</label>
+			</li>
+			<li class="logo"><a href="#"><span>logo</span></a></li>
+			<li class="gouwudai"><a href="#"></a></li>
+		</ul>
+		<nav class="xl-nav">
+			<ul>
+				<li><a href="#">Mac</a></li>
+				<li><a href="#">iPad</a></li>
+				<li><a href="#">iPhone</a></li>
+				<li><a href="#">Watch</a></li>
+				<li><a href="#">TV</a></li>
+				<li><a href="#">Music</a></li>
+				<li><a href="#">Support</a></li>
+			</ul>
+		</nav>
+	</nav>
+	<article>
+		<section class="bannerbox">
+			<div class="imgbox">
+				<a href="#">
+					<span>tv</span>
+				</a>
+				<div class="neirongbox">
+					<h1>Apple tv</h1>
+					<h2>The future of television is here.</h2>
+					<ul>
+						<li class="Learnmore">
+							<a href="#">Learn more
+							    <span class="icon icomjiantou"></span>
+						    </a>
+						</li>
+
+						<li class="Watchthefilm"><a href="#">Watch the film<span class="icon icomyuan"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="imgbox">
+				<a href="#">
+					<span>tv</span>
+				</a>
+				<div class="neirongbox">
+					<h1>Apple tv</h1>
+					<h2>The future of television is here.</h2>
+					<ul>
+						<li class="Learnmore">
+							<a href="#">Learn more
+							    <span class="icon icomjiantou"></span>
+						    </a>
+						</li>
+
+						<li class="Watchthefilm"><a href="#">Watch the film<span class="icon icomyuan"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="imgbox">
+				<a href="#">
+					<span>tv</span>
+				</a>
+				<div class="neirongbox">
+					<h1>Apple tv</h1>
+					<h2>The future of television is here.</h2>
+					<ul>
+						<li class="Learnmore">
+							<a href="#">Learn more
+							    <span class="icon icomjiantou"></span>
+						    </a>
+						</li>
+
+						<li class="Watchthefilm"><a href="#">Watch the film<span class="icon icomyuan"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<nav class="botnavan">
+			<ul>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+				<li><a href="#"></a></li>
+			</ul>
+		</nav>
+	</article>
+	<aside>
+		<ul class="asideul">
+			<li><a href="#" class="Watch">watch</a></li>
+			<li><a href="#" class="iphone6s">iphone 6s</a></li>
+			<li><a href="#" class="ios">ios preview</a></li>
+			<li><a href="#" class="macbook">mac book</a></li>
+		</ul>
+	</aside>
+	<footer class="bottom-ft">
+		<div class="bottombox">
+			<h2 class="b-leber-h2">Apple Footer</h2>
+			<nav class="ft-b-nav">
+				<div class="ft-b-nav-div">
+					
+					<div class="ulbox">
+						<h3>Shop and Learn</h3>
+					<ul>
+						<li><a href="#">Mac</a></li>
+						<li><a href="#">iPad</a></li>
+						<li><a href="#">iPhone</a></li>
+						<li><a href="#">Watch</a></li>
+						<li><a href="#">TV</a></li>
+						<li><a href="#">Music</a></li>
+						<li><a href="#">iTunes</a></li>
+						<li><a href="#">iPod</a></li>
+						<li><a href="#">Accessories</a></li>
+						<li><a href="#">Gift Cards</a></li>
+					</ul>
+					</div>
+				</div>
+
+				<div class="ft-b-nav-div">
+					
+					<div class="ulbox">
+						<h3>Apple Store</h3>
+					<ul>
+						<li><a href="#">Find a Store</a></li>
+						<li><a href="#">Genius Bar</a></li>
+						<li><a href="#">Workshops and Learning</a></li>
+						<li><a href="#">Youth Programs</a></li>
+						<li><a href="#">Apple Store App</a></li>
+						<li><a href="#">Refurbished</a></li>
+						<li><a href="#">Financing</a></li>
+						<li><a href="#">Reuse and Recycling</a></li>
+						<li><a href="#">Order Status</a></li>
+						<li><a href="#">Shopping Help</a></li>
+					</ul>
+					</div>
+				</div>
+
+				<div class="ft-b-nav-div">
+					<div class="ulbox">
+						<h3>Shop and Learn</h3>
+					   <ul>
+						<li><a href="#">Apple and Education</a></li>
+						<li><a href="#">Shop for College</a></li>
+					</ul>
+					</div>
+					<div class="ulbox ulbox2">
+						<h3>For Business</h3>
+					   <ul>
+						<li><a href="#">iPhone in Business</a></li>
+						<li><a href="#">iPad in Business</a></li>
+						<li><a href="#">Mac in Business</a></li>
+						<li><a href="#">Shop for Your Business</a></li>
+					</ul>
+					</div>
+				</div>
+
+				<div class="ft-b-nav-div">
+					<div class="ulbox">
+						<h3>Account</h3>
+					   <ul>
+						<li><a href="#">Manage Your Apple ID</a></li>
+						<li><a href="#">Apple Store Account</a></li>
+						<li><a href="#">iCloud.com</a></li>
+					</ul>
+					</div>
+					<div class="ulbox ulbox2">
+						<h3>Apple Values</h3>
+					   <ul>
+						<li><a href="#">Environment</a></li>
+						<li><a href="#">Supplier Responsibility</a></li>
+						<li><a href="#">Accessibility</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Inclusion and Diversity</a></li>
+						<li><a href="#">Education</a></li>
+					</ul>
+					</div>
+				</div>
+				<div class="ft-b-nav-div">
+					
+					<div class="ulbox">
+						<h3>About Apple</h3>
+					<ul>
+						<li><a href="#">Apple Info</a></li>
+						<li><a href="#">Job Opportunities</a></li>
+						<li><a href="#">Press Info</a></li>
+						<li><a href="#">Investors</a></li>
+						<li><a href="#">Events</a></li>
+						<li><a href="#">Hot News </a></li>
+						<li><a href="#">Legal</a></li>
+						<li><a href="#">Contact Apple</a></li>
+					</ul>
+					</div>
+				</div>
+			</nav>
+			<section class="ft-b-sec">
+				<div class="ft-b-shop"> More ways to shop: Visit an <a href="#">find a reseller</a>,<span>call 1-800-MY-APPLE, or <a href="#">find a reseller</a></span>.
+				</div>
+				<div class="ft-b-locale">
+					<a href="#">
+						<span class="nationnal"></span>
+						United States
+					</a>
+				</div>
+				<div class="ft-b-legal">
+					<div class="ft-b-legal-text">Copyright © 2016 Apple Inc. All rights reserved.</div>
+					<div class="ft-b-legal-links">
+						<a href="#">Privacy Policy</a>
+						<a href="#">Terms of Use</a>
+						<a href="#">Sales and Refunds</a>
+						<a href="#">Site Map</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</footer>
+</body>
+</html>
