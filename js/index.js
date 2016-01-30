@@ -26,6 +26,6 @@ document.addEventListener('readystatechange',function(){
             		
             	}
             })*/
-            setInterval(move,1000);
+            setInterval(move,5000);
         } 
 },false)
