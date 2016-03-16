@@ -3,8 +3,9 @@ document.addEventListener('readystatechange',function(){
             var imgbox=document.querySelectorAll(".imgbox");
             var botnavan=document.querySelectorAll(".botnavan li");
             // console.log(botnavan);
-            var w=document.documentElement.clientWidth;
+            var w;
             window.onresize=function(){
+                w=document.documentElement.clientWidth;
                 for(var i=0;i<imgbox.length;i++){
             	    imgbox[i].style.left=i*w+"px";
                 }
@@ -12,7 +13,7 @@ document.addEventListener('readystatechange',function(){
             window.onresize();
             
             var num=0;
-            function move(){
+            function moveFn(){
             	num+=1;
             	if(num==4){
             		num=0;
@@ -27,7 +28,7 @@ document.addEventListener('readystatechange',function(){
                     botnavan[num].id="thisan"
             	}
             }
-            var move=setInterval(move,5000);
+            var move=setInterval(moveFn,5000);
 
             for(var i=0;i<botnavan.length;i++){
                 botnavan[i].index=i;
@@ -43,5 +44,20 @@ document.addEventListener('readystatechange',function(){
                     }
                 }
             }
+
+            var page=document.querySelector('body');
+            var labelnav=document.querySelector('#menuicon-label');
+            console.log(page)
+            labelnav.onclick=function(){
+              if(page.className=='page'){
+                page.className='';
+              }else{
+                page.className='page';
+              }
+              
+            }
+
+
+
         } 
 },false)
