@@ -704,7 +704,11 @@ article{
 	color: #000;
 	text-decoration: underline;
 }
-.down-menu{
+.down-menu h3{
+	font-size: 12px;
+	font-weight: 600;
+}
+.down-menu span{
 	display: none;
 }
 @media(max-width: 1050px){
@@ -871,6 +875,11 @@ article{
     	border-bottom: 1px solid #e3e3e3;
     	position: relative;
     }
+    .ulbox>label{
+    	margin:0;
+		background: #eee;
+		width: 100%;
+    }
 	.ulbox>label>h3{
 		height: 40px;
 		line-height: 40px;
@@ -899,7 +908,7 @@ article{
 		height: 30px;
 		margin: 0 14px;
 	}
-	.down-menu{
+	.down-menu span{
 		display: block;
 		font-size: 12px;
 	}
